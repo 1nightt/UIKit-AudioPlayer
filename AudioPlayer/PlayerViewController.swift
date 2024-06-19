@@ -1,21 +1,21 @@
-// VC АудиоПлеер
-
 import UIKit
 import AVFoundation
 
+// VC АудиоПлеер
+
 final class PlayerViewController: UIViewController {
     // MARK: - IBOutlet
-    @IBOutlet weak var albumNameLabel: UILabel!
-    @IBOutlet weak var songImage: UIImageView!
-    @IBOutlet weak var nameOfSongLabel: UILabel!
-    @IBOutlet weak var nameOfArtistLabel: UILabel!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var timeStopLabel: UILabel!
-    @IBOutlet weak var songSlider: UISlider!
-    @IBOutlet weak var volumeSlider: UISlider!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var playPauseButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet private weak var albumNameLabel: UILabel!
+    @IBOutlet private weak var songImage: UIImageView!
+    @IBOutlet private weak var nameOfSongLabel: UILabel!
+    @IBOutlet private weak var nameOfArtistLabel: UILabel!
+    @IBOutlet private weak var startTimeLabel: UILabel!
+    @IBOutlet private weak var timeStopLabel: UILabel!
+    @IBOutlet private weak var songSlider: UISlider!
+    @IBOutlet private weak var volumeSlider: UISlider!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var playPauseButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
     
     var player = AVAudioPlayer()
     var songName = ""
@@ -25,12 +25,14 @@ final class PlayerViewController: UIViewController {
     var timeSong: Double = Double()
     var currentSongIndex = 1
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForAudioPlayer()
         
     }
     
+    // MARK: - Private Methods
     private func setupForAudioPlayer() {
         albumNameLabel.text = songName
         albumNameLabel.font = UIFont.boldSystemFont(ofSize: 13)
@@ -65,7 +67,6 @@ final class PlayerViewController: UIViewController {
         
     }
     
-    
     @objc private func updateTime() {
         let timePlayed = player.currentTime
         let minutes = Int(timePlayed / 60)
@@ -81,7 +82,6 @@ final class PlayerViewController: UIViewController {
     }
     
     
-    //MARK: - IBAction
     @IBAction private func songSliderAction(_ sender: UISlider) {
         self.player.currentTime = TimeInterval(self.songSlider.value)
     }

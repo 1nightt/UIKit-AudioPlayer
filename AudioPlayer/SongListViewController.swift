@@ -1,7 +1,7 @@
-// VC, который показывает список песен
-
 import UIKit
 import AVFoundation
+
+// VC, который показывает список песен
 
 final class SongListViewController: UIViewController {
     // MARK: - IBOutlet
@@ -14,34 +14,10 @@ final class SongListViewController: UIViewController {
     @IBOutlet private weak var firstNameOfArtistLabel: UILabel!
     @IBOutlet private weak var secondNameOfArtistLabel: UILabel!
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForSongs()
-    }
-    
-    private func setupForSongs() {
-        firstSongImage.image = UIImage(named: "Туда сюда")
-        secondSongImage.image = UIImage(named: "Айтишник")
-        
-        firstNameSongButton.setTitle("Туда Сюда Миллионер", for: .normal)
-        firstNameSongButton.tintColor = .black
-        firstNameSongButton.contentHorizontalAlignment = .left
-        firstNameSongButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        firstTimeSongLabel.text = "2:10"
-        firstTimeSongLabel.textColor = .lightGray
-        firstNameOfArtistLabel.text = "Scally Milano, uglystephan"
-        firstNameOfArtistLabel.textColor = .lightGray
-        firstNameOfArtistLabel.font = .systemFont(ofSize: 13)
-        
-        secondNameSongButton.setTitle("Айтишник", for: .normal)
-        secondNameSongButton.tintColor = .black
-        secondNameSongButton.contentHorizontalAlignment = .left
-        secondNameSongButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        secondTimeSongLabel.text = "2:10"
-        secondTimeSongLabel.textColor = .lightGray
-        secondNameOfArtistLabel.text = "Нексюша"
-        secondNameOfArtistLabel.textColor = .lightGray
-        secondNameOfArtistLabel.font = .systemFont(ofSize: 13)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,6 +56,33 @@ final class SongListViewController: UIViewController {
             secondVC?.player.play()
         }
     }
+    
+    // MARK: - Private Methods
+    private func setupForSongs() {
+        firstSongImage.image = UIImage(named: "Туда сюда")
+        secondSongImage.image = UIImage(named: "Айтишник")
+        
+        firstNameSongButton.setTitle("Туда Сюда Миллионер", for: .normal)
+        firstNameSongButton.tintColor = .black
+        firstNameSongButton.contentHorizontalAlignment = .left
+        firstNameSongButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        firstTimeSongLabel.text = "2:10"
+        firstTimeSongLabel.textColor = .lightGray
+        firstNameOfArtistLabel.text = "Scally Milano, uglystephan"
+        firstNameOfArtistLabel.textColor = .lightGray
+        firstNameOfArtistLabel.font = .systemFont(ofSize: 13)
+        
+        secondNameSongButton.setTitle("Айтишник", for: .normal)
+        secondNameSongButton.tintColor = .black
+        secondNameSongButton.contentHorizontalAlignment = .left
+        secondNameSongButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        secondTimeSongLabel.text = "2:10"
+        secondTimeSongLabel.textColor = .lightGray
+        secondNameOfArtistLabel.text = "Нексюша"
+        secondNameOfArtistLabel.textColor = .lightGray
+        secondNameOfArtistLabel.font = .systemFont(ofSize: 13)
+    }
+    
 
 }
 
